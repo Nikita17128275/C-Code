@@ -17,3 +17,23 @@ int main() {
     printf("rev strr: %s",rev);
     return 0;
 }
+
+
+//another methos
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[7]="String";
+    str[7]='\0';
+    int j=strlen(str)-1;
+    for(int i=0;i<=j;i++){
+        char st=str[j];
+        str[j]=str[i];
+        str[i]=st;
+        j--;
+    }
+    for(int i=0;i<=strlen(str)-1;i++){
+        printf("%c",str[i]);
+    }
+    return 0;
+}
