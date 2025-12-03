@@ -37,3 +37,36 @@ int main() {
     }
     return 0;
 }
+
+
+//reverse using malloc
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+void reverse(char *str){
+    char *start = str;
+    char *end = str+strlen(str)-1;
+    
+    if(*end=='\n'){
+        *end='\0';
+        end--;
+    }
+
+    while(start<end){
+        char temp=*start;
+        *start=*end;
+        *end = temp;
+        start++;
+        end--;
+    }
+}
+int main() {
+    char *str=(char *)malloc(50*(sizeof(char)));
+    printf("str: ");
+    fgets(str,50,stdin);
+    printf("Input: %s",str);
+    reverse(str);
+    printf("Output: %s",str);
+    free(str);
+    return 0;
+}
